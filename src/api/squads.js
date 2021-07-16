@@ -10,6 +10,23 @@ export const indexAllSquads = user => {
   })
 }
 
+export const createSquad = user => {
+  return axios({
+    method: 'POST',
+    url: `${apiUrl}/squads`,
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    },
+    data: {
+      squad: {
+        owner: user.id,
+        pokemon: [],
+        current: !!user.carts.cart.current
+      }
+    }
+  })
+}
+
 export const showOneSquad = (id, user) => {
   return axios({
     url: apiUrl + '/squads/' + id,
@@ -19,21 +36,36 @@ export const showOneSquad = (id, user) => {
   })
 }
 
-export const updateSquad = (id, data, user) => {
+export const addToSquad = (squadId, pokemonId, user) => {
   return axios({
     method: 'PATCH',
-    url: apiUrl + '/squads/' + id,
-    data,
+    url: apiUrl + '/squads/' + squadId,
     headers: {
       'Authorization': `Bearer ${user.token}`
+    },
+    data: {
+      pokemon: { id: pokemonId }
     }
   })
 }
 
-export const deleteSquad = (id, user) => {
+export const removeFromSquad = (squadId, pokemonId, user) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + '/cart-delete/' + squadId,
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    },
+    data: {
+      pokemon: { id: pokemonId }
+    }
+  })
+}
+
+export const deleteSquad = (squadId, user) => {
   return axios({
     method: 'DELETE',
-    url: apiUrl + '/squads/' + id,
+    url: apiUrl + '/squads/' + squadId,
     headers: {
       'Authorization': `Bearer ${user.token}`
     }
