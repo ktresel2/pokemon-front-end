@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, HashRouter as Router, Switch } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
@@ -10,6 +10,7 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import IndexAll from './components/Index/IndexAll'
+import ShowPokemon from './components/Show/ShowPokemon'
 
 class App extends Component {
   constructor (props) {
@@ -54,21 +55,28 @@ class App extends Component {
           />
         ))}
         <main className="container">
-          <Route path='/sign-up' render={() => (
-            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <Route path='/sign-in' render={() => (
-            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword msgAlert={this.msgAlert} user={user} />
-          )} />
-          <Route user={user || null} exact path={'/'} render={() => (
-            <IndexAll msgAlert={this.msgAlert} user={user || null} />
-          )} />
+          <Router>
+            <Switch>
+              <Route path='/sign-up' render={() => (
+                <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
+              )} />
+              <Route path='/sign-in' render={() => (
+                <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+              )} />
+              <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+                <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
+              )} />
+              <AuthenticatedRoute user={user} path='/change-password' render={() => (
+                <ChangePassword msgAlert={this.msgAlert} user={user} />
+              )} />
+              <Route user={user} exact path={'/'} render={() => (
+                <IndexAll msgAlert={this.msgAlert} user={user} />
+              )} />
+              <Route user={user} path={'/pokemon/:id'} render={() => (
+                <ShowPokemon msgAlert={this.msgAlert} user={user} />
+              )}/>
+            </Switch>
+          </Router>
         </main>
       </Fragment>
     )

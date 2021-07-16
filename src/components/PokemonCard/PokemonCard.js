@@ -11,7 +11,7 @@ const PokemonCard = pokemon => (
       <Card.Text className="card-text">
         {pokemon.type}
       </Card.Text>
-      <Button variant="primary"><Link className="button-link" to={`/pokemon/${pokemon.id}`}>Check out this pokemon</Link></Button>
+      <Button variant="outline-success"><Link className="button-link" to={`/pokemon/${pokemon.id}`}>Check out this pokemon</Link></Button>
     </Card.Body>
   </Card>
 )

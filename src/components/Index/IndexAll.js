@@ -4,7 +4,7 @@ import PokemonCard from './../PokemonCard/PokemonCard'
 
 import { indexAllPokemon } from './../../api/pokemon'
 
-const IndexAll = props => {
+export default function IndexAll (props) {
   const [pokemon, setPokemon] = useState('')
 
   useEffect(() => {
@@ -13,17 +13,17 @@ const IndexAll = props => {
   })
 
   return (
-    pokemon && pokemon.map(poke => {
-      return <div key={poke._id}>
-        <PokemonCard
-          key={poke._id}
-          name={poke.name}
-          image={poke.image}
-          type={poke.type}
-        />
-      </div>
-    })
+    <main className="d-grid main-index">
+      {pokemon && pokemon.map(poke => {
+        return <div key={poke._id}>
+          <PokemonCard
+            key={poke._id}
+            name={poke.name}
+            image={poke.image}
+            type={poke.type}
+          />
+        </div>
+      })}
+    </main>
   )
 }
-
-export default IndexAll

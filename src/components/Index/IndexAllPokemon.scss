@@ -1,0 +1,30 @@
+.d-grid {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: red;
+  justify-content: space-between;
+
+  & .card {
+    width: auto;
+    background-color: lightblue;
+    border: 15px solid gold;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+
+    & img {
+      width: 70%;
+      border-radius: 50%;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .d-grid {
+    justify-content: center;
+    & .card {
+      margin: 0 auto 30px;
+    }
+  }
+}
