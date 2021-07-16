@@ -49,7 +49,7 @@ export const addToSquad = (squadId, pokemonId, user) => {
   })
 }
 
-export const removeFromSquad = (squadId, pokemonId, user) => {
+export const deleteFromSquad = (squadId, pokemonId, user) => {
   return axios({
     method: 'PATCH',
     url: apiUrl + '/cart-delete/' + squadId,
