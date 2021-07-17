@@ -20,8 +20,7 @@ export const createSquad = user => {
     data: {
       squad: {
         owner: user.id,
-        pokemon: [],
-        current: !!user.carts.cart.current
+        pokemon: []
       }
     }
   })
@@ -52,7 +51,7 @@ export const addToSquad = (squadId, pokemonId, user) => {
 export const deleteFromSquad = (squadId, pokemonId, user) => {
   return axios({
     method: 'PATCH',
-    url: apiUrl + '/cart-delete/' + squadId,
+    url: apiUrl + '/delete-from-squad/' + squadId,
     headers: {
       'Authorization': `Bearer ${user.token}`
     },
