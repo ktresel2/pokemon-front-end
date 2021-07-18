@@ -11,6 +11,7 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import IndexAll from './components/Index/IndexAll'
 import ShowPokemon from './components/Show/ShowPokemon'
+import ShowSquad from './components/Show/ShowSquad'
 
 class App extends Component {
   constructor (props) {
@@ -69,12 +70,15 @@ class App extends Component {
               <AuthenticatedRoute user={user} path='/change-password' render={() => (
                 <ChangePassword msgAlert={this.msgAlert} user={user} />
               )} />
+              <Route user={user} exact path={'/pokemon/:id'} render={() => (
+                <ShowPokemon msgAlert={this.msgAlert} user={user} />
+              )}/>
+              <Route user={user} exact path={'/squads/:id'} render={() => (
+                <ShowSquad msgAlert={this.msgAlert} user={user} />
+              )}/>
               <Route user={user} exact path={'/'} render={() => (
                 <IndexAll msgAlert={this.msgAlert} user={user} />
               )} />
-              <Route user={user} path={'/pokemon/:id'} render={() => (
-                <ShowPokemon msgAlert={this.msgAlert} user={user} />
-              )}/>
             </Switch>
           </Router>
         </main>

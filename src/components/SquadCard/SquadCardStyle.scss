@@ -1,0 +1,15 @@
+.squad-card {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  border: 1px solid black;
+  align-items: center;
+}
+
+.squad-card .card-body {
+  display: flex;
+
+  & img {
+    width: 100px;
+  }
+}

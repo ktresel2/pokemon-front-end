@@ -7,7 +7,7 @@ export const indexAllPokemon = () => {
   })
 }
 
-export const showOnePokemon = (id) => {
+export const showOnePokemon = id => {
   return axios({
     url: apiUrl + '/pokemon/' + id
   })

@@ -3,8 +3,8 @@ import { Link, withRouter } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
-const PokemonCard = pokemon => (
-  <Card className="card" key={pokemon._id}>
+const PokemonCard = (pokemon) => (
+  <Card className="card" key={pokemon.id}>
     <Card.Img className="card-image" variant="top" src={pokemon.image}/>
     <Card.Body className="card-body">
       <Card.Title className="card-title">{pokemon.name}</Card.Title>

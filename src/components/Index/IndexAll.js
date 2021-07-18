@@ -15,14 +15,14 @@ export default function IndexAll (props) {
   return (
     <main className="d-grid main-index">
       {pokemon && pokemon.map(poke => {
-        return <div key={poke._id}>
-          <PokemonCard
-            key={poke._id}
-            name={poke.name}
-            image={poke.image}
-            type={poke.type}
-          />
-        </div>
+        return <PokemonCard
+          key={poke._id}
+          id={poke._id}
+          name={poke.name}
+          image={poke.image}
+          type={poke.type}
+          pokeId={poke.pokeId}
+        />
       })}
     </main>
   )
