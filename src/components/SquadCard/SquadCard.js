@@ -8,9 +8,9 @@ import { addToSquad } from './../../api/squads'
 const SquadCard = (props) => {
   const [thisSquad, setThisSquad] = useState(null)
 
-  useEffect(() => (
-    !thisSquad ? setThisSquad(props.pokemon) : setThisSquad(thisSquad)
-  ))
+  useEffect(() => {
+    !thisSquad && setThisSquad(props.pokemon)
+  })
 
   const onAdd = () => {
     addToSquad(props.id, props.showingPoke._id, props.user)
@@ -19,7 +19,8 @@ const SquadCard = (props) => {
         return res
       })
       .then(res => {
-        setThisSquad(res.data.squad.pokemon)
+        // Getting these BACK AS AN ARRAY AND THAT'S WHAT I DON'T WANT
+        setThisSquad(res.data.squad)
         return res
       }
       ).then(res => console.log(res, thisSquad))
