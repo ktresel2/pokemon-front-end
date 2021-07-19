@@ -9,9 +9,10 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
-import IndexAll from './components/Index/IndexAll'
+import IndexPokemon from './components/Index/IndexPokemon'
 import ShowPokemon from './components/Show/ShowPokemon'
 import ShowSquad from './components/Show/ShowSquad'
+import IndexSquads from './components/Index/IndexSquads'
 
 class App extends Component {
   constructor (props) {
@@ -70,14 +71,20 @@ class App extends Component {
               <AuthenticatedRoute user={user} path='/change-password' render={() => (
                 <ChangePassword msgAlert={this.msgAlert} user={user} />
               )} />
+              <Route user={user} exact path={'/pokemon'} render={() => (
+                <IndexPokemon msgAlert={this.msgAlert} user={user} />
+              )} />
               <Route user={user} exact path={'/pokemon/:id'} render={() => (
                 <ShowPokemon msgAlert={this.msgAlert} user={user} />
               )}/>
-              <Route user={user} exact path={'/squads/:id'} render={() => (
+              <AuthenticatedRoute user={user} exact path={'/squads'} render={() => (
+                <IndexSquads msgAlert={this.msgAlert} user={user} />
+              )} />
+              <AuthenticatedRoute user={user} exact path={'/squads/:id'} render={() => (
                 <ShowSquad msgAlert={this.msgAlert} user={user} />
               )}/>
               <Route user={user} exact path={'/'} render={() => (
-                <IndexAll msgAlert={this.msgAlert} user={user} />
+                <IndexPokemon msgAlert={this.msgAlert} user={user} />
               )} />
             </Switch>
           </Router>

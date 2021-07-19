@@ -3,26 +3,44 @@ import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 // import Button from 'react-bootstrap/Button'
 import { showOnePokemon } from './../../api/pokemon'
-import { indexAllSquads } from './../../api/squads'
+import { indexAllSquads, createSquad, addToSquad } from './../../api/squads'
 import SquadCard from './../SquadCard/SquadCard.js'
+import Button from 'react-bootstrap/Button'
 
-// import { getAllCarts, addToCart } from './../../api/cart'
 // import messages from '../AutoDismissAlert/messages'
 
 const ShowPokemon = props => {
   const [pokemon, setPokemon] = useState(null)
-  const [squads, setSquads] = useState(null)
+  const [squads, setSquads] = useState([])
 
   const { user, match } = props
 
   useEffect(() => {
     !pokemon && showOnePokemon(match.params.id)
       .then(res => setPokemon(res.data.pokemon))
-      .then(res => user && !squads && indexAllSquads(user))
+      .then(res => user && indexAllSquads(user))
       .then(res => setSquads(res.data.squads))
       .catch(console.error)
     console.log(squads)
   })
+
+  const handleClick = () => {
+    createSquad(user, pokemon)
+      .then(res => indexAllSquads(user))
+      .then(res => setSquads(res.data.squads))
+      .catch(console.error)
+  }
+
+  const onAdd = async (sid, pid, u) => {
+    await addToSquad(sid, pid, u)
+
+    indexAllSquads(u)
+      .then(res => {
+        console.log(res.data)
+        // setThisSquad(res.data)
+        setSquads(res.data.squads)
+      })
+  }
 
   return (
     <main className="show-page">
@@ -32,11 +50,14 @@ const ShowPokemon = props => {
         return <SquadCard
           key={squad._id}
           id={squad._id}
-          pokemon={squad.pokemon}
+          squad={squad}
           showingPoke={pokemon}
           user={user}
+          useVisit={true}
+          onAdd={onAdd}
         />
       })}
+      <Button variant="outline-success" onClick={handleClick}>Add to a new Squad</Button>
     </main>
   )
 }
