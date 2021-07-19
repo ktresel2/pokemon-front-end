@@ -4,7 +4,7 @@ import PokemonCard from './../PokemonCard/PokemonCard'
 
 import { indexAllPokemon } from './../../api/pokemon'
 
-export default function IndexAll (props) {
+export default function IndexPokemon (props) {
   const [pokemon, setPokemon] = useState('')
 
   useEffect(() => {

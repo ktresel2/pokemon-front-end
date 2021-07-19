@@ -1,44 +1,35 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { withRouter } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
-import { addToSquad } from './../../api/squads'
-
 const SquadCard = (props) => {
-  const [thisSquad, setThisSquad] = useState(null)
+  const { user, onAdd, showingPoke, history, id, squad } = props
+  console.log(showingPoke)
 
-  useEffect(() => {
-    !thisSquad && setThisSquad(props.pokemon)
-  })
+  // const mapSquad = () => {
+  //   const arr = []
+  //   squad.pokemon.map(poke => {
+  //     arr.push(poke.id)
+  //   })
+  //   return arr
+  // }
+  //
+  // const blah = mapSquad()
 
-  const onAdd = () => {
-    addToSquad(props.id, props.showingPoke._id, props.user)
-      .then(res => {
-        console.log(res)
-        return res
-      })
-      .then(res => {
-        // Getting these BACK AS AN ARRAY AND THAT'S WHAT I DON'T WANT
-        setThisSquad(res.data.squad)
-        return res
-      }
-      ).then(res => console.log(res, thisSquad))
-  }
-
-  console.log(thisSquad)
-
-  return thisSquad && <Card className="card squad-card" key={thisSquad.id}>
+  return user && <Card className="card squad-card" key={id}>
     <Card.Body className="card-body">
-      <Card.Title className="card-title">{thisSquad.id}</Card.Title>
-      <Button onClick={onAdd} variant="outline-primary">Add {props.showingPoke.name} to this Squad</Button>
+      <Card.Title className="card-title">{id}</Card.Title>
+      {showingPoke &&
+      <Button onClick={() => onAdd(id, showingPoke._id, user)} variant="outline-primary">Add {showingPoke.name} to this Squad</Button>
+      }
       <Card.Text className="card-text">
-        {thisSquad.map(poke => {
+        {squad.pokemon.map(poke => {
           console.log(poke)
           return <img key={poke.id} src={poke.image}/>
         })}
       </Card.Text>
-      <Button variant="outline-success" onClick={() => props.history.push(`/squads/${props.id}`)}>Visit this squad</Button>
+      <Button variant="outline-success" onClick={() => history.push(`/squads/${props.id}`)}>Visit this squad</Button>
     </Card.Body>
   </Card>
 }

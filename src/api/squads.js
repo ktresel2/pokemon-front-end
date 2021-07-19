@@ -10,7 +10,7 @@ export const indexAllSquads = user => {
   })
 }
 
-export const createSquad = user => {
+export const createSquad = (user, pokemon) => {
   return axios({
     method: 'POST',
     url: `${apiUrl}/squads`,
@@ -20,7 +20,7 @@ export const createSquad = user => {
     data: {
       squad: {
         owner: user.id,
-        pokemon: []
+        pokemon: [pokemon] || []
       }
     }
   })
