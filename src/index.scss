@@ -2,3 +2,27 @@
 @import './Components/Index/IndexAllPokemon.scss';
 @import './Components/SquadCard/SquadCardStyle.scss';
 @import './Components/Show/Show.scss';
+@import './Components/Header/HeaderStyle.scss';
+
+.hero {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -100;
+    opacity: 0.3;
+}
+
+.hero::before {
+      content: "";
+      background-image: url('./images/thimo-pedersen-dip9IIwUK6w-unsplash.jpg');
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.75;
+}

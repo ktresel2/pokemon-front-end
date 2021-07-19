@@ -32,7 +32,11 @@ const ShowPokemon = props => {
   }
 
   const onAdd = async (sid, pid, u) => {
-    await addToSquad(sid, pid, u)
+    try {
+      await addToSquad(sid, pid, u)
+    } catch (error) {
+      console.error('Pokemon already exists')
+    }
 
     indexAllSquads(u)
       .then(res => {
@@ -57,7 +61,7 @@ const ShowPokemon = props => {
           onAdd={onAdd}
         />
       })}
-      <Button variant="outline-success" onClick={handleClick}>Add to a new Squad</Button>
+      {user && <Button variant="outline-success" onClick={handleClick}>Add to a new Squad</Button>}
     </main>
   )
 }

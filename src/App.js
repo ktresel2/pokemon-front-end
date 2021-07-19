@@ -46,6 +46,7 @@ class App extends Component {
     return (
       <Fragment>
         <Header user={user} />
+        <div className='hero' />
         {msgAlerts.map(msgAlert => (
           <AutoDismissAlert
             key={msgAlert.id}

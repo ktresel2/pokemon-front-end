@@ -1,12 +1,12 @@
 .d-grid {
   display: flex;
   flex-wrap: wrap;
-  background-color: red;
+  background-color: transparent;
   justify-content: space-between;
 
   .pokemon-card {
     width: auto;
-    background-color: lightblue;
+    background-color: transparent;
     border: 15px solid gold;
     border-radius: 20px;
     margin-bottom: 30px;
