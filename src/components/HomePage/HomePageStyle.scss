@@ -1,0 +1,19 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+
+  & h1, h2 {
+    margin: 30px auto;
+    text-align: center;
+  }
+
+  & button {
+    margin-top: 70px;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    width: auto;
+    padding: 12px;
+    background-color: rgba(200, 44, 44, 0.8)
+  }
+}

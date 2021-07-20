@@ -1,0 +1,48 @@
+.pokemon-card {
+  width: auto;
+  background-color: rgba(30, 30, 200, 0.46);
+  border: 10px solid gold;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  box-shadow: 2px 2px 6px 1px black;
+  text-transform: capitalize;
+
+  & img {
+    margin-top: 20px;
+    width: 100px;
+  }
+
+  & .card-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  & p {
+    margin: 5px;
+  }
+
+  & button {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    box-shadow: 2px 2px 1px rgba(20, 30, 10, 0.3);
+    text-transform: capitalize;
+
+    &:hover {
+      transform: translateY(-2px);
+      transition: 0.3s ease-in-out;
+      box-shadow: 2px 2px 3px black;
+    }
+  }
+
+  & .delete-btn {
+    background-color: rgba(232, 11, 55, 0.8);
+  }
+
+  & .checkout-btn {
+    background-color: rgba(222, 11, 55, 0.2);
+  }
+}

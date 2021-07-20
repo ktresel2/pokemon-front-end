@@ -1,0 +1,9 @@
+.index-squads {
+  display: flex;
+  flex-direction: column;
+
+  & .card {
+    // display: block;
+    // width: 100%;
+  }
+}

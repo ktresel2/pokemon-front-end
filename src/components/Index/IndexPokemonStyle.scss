@@ -1,0 +1,17 @@
+.grid {
+  justify-content: center;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  background-color: transparent;
+  grid-gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .d-grid {
+    justify-content: center;
+    & .card {
+      margin: 0 auto 30px;
+    }
+  }
+}

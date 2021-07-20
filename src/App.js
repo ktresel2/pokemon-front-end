@@ -13,6 +13,7 @@ import IndexPokemon from './components/Index/IndexPokemon'
 import ShowPokemon from './components/Show/ShowPokemon'
 import ShowSquad from './components/Show/ShowSquad'
 import IndexSquads from './components/Index/IndexSquads'
+import HomePage from './components/HomePage/HomePage'
 
 class App extends Component {
   constructor (props) {
@@ -85,7 +86,7 @@ class App extends Component {
                 <ShowSquad msgAlert={this.msgAlert} user={user} />
               )}/>
               <Route user={user} exact path={'/'} render={() => (
-                <IndexPokemon msgAlert={this.msgAlert} user={user} />
+                <HomePage user={user} />
               )} />
             </Switch>
           </Router>
