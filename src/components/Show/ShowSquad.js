@@ -4,28 +4,49 @@ import { withRouter } from 'react-router-dom'
 import { showOneSquad, deleteFromSquad, deleteSquad } from './../../api/squads'
 import Button from 'react-bootstrap/Button'
 import PokemonCard from './../PokemonCard/PokemonCard'
-// import messages from '../AutoDismissAlert/messages'
+import messages from '../AutoDismissAlert/messages'
 
 const ShowSquad = props => {
   const [squad, setSquad] = useState(null)
 
-  const { user, match, history } = props
+  const { user, match, history, msgAlert } = props
 
   useEffect(() => {
     console.log(user, squad)
     !squad && showOneSquad(match.params.id, user)
-      .then(res => {
-        console.log(res.data)
-        setSquad(res.data.squad)
+      .then(res => setSquad(res.data.squad))
+      .then(() => msgAlert({
+        heading: 'Show squad Success',
+        message: messages.showSquadSuccess,
+        variant: 'success'
+      }))
+      .catch(error => {
+        setSquad(null)
+        msgAlert({
+          heading: 'Index Pokemon failed with error: ' + error.message,
+          message: messages.showSquadFailure,
+          variant: 'danger'
+        })
       })
-      .catch(console.error)
   })
 
   const deletePokeFromSquad = (sid, pid, u) => {
     deleteFromSquad(sid, pid, u)
       .then(showOneSquad(match.params.id, user))
       .then(res => setSquad(res.data.squad))
-      .catch(console.error)
+      .then(() => msgAlert({
+        heading: 'Update Success',
+        message: messages.deleteFromSquadSuccess,
+        variant: 'success'
+      }))
+      .catch(error => {
+        setSquad(null)
+        msgAlert({
+          heading: 'Show squad failed with error: ' + error.message,
+          message: messages.deleteFromSquadFailure,
+          variant: 'danger'
+        })
+      })
   }
 
   const deleteThisSquad = async (sid, u) => {

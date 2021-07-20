@@ -47,21 +47,6 @@ const IndexSquads = (props) => {
 
     indexAllSquads(u)
       .then(res => setSquads(res.data.squads))
-      .then(() => {
-        msgAlert({
-          heading: 'Index Success',
-          message: messages.indexSquadsSuccess,
-          variant: 'success'
-        })
-      })
-      .catch(error => {
-        setSquads(null)
-        msgAlert({
-          heading: 'Index Squads failed with error: ' + error.message,
-          message: messages.changePasswordFailure,
-          variant: 'danger'
-        })
-      })
   }
 
   return <main className="d-grid main-index">
