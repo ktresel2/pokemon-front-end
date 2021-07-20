@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom'
 import { showOnePokemon } from './../../api/pokemon'
 import { indexAllSquads, createSquad, addToSquad } from './../../api/squads'
 import SquadCard from './../SquadCard/SquadCard.js'
-import Button from 'react-bootstrap/Button'
 import messages from '../AutoDismissAlert/messages'
 
 const ShowPokemon = props => {
@@ -19,7 +18,7 @@ const ShowPokemon = props => {
       .then(() => user && indexAllSquads(user))
       .then(res => setSquads(res.data.squads))
       .then(() => msgAlert({
-        heading: 'Show Pokemon Success',
+        heading: 'Show Pokemon success',
         message: messages.showPokemonSuccess,
         variant: 'success'
       }))
@@ -69,11 +68,11 @@ const ShowPokemon = props => {
   }
 
   return (
-    <main className="show-page">
+    <section className="show-page">
       {pokemon && <div className="poke-stats">
         <h1>{pokemon.name}</h1>
         <img src={pokemon.image} />
-        {user && <Button className="d-block" variant="outline-success" onClick={handleClick}>Add to a new Squad</Button>}
+        {user && <button className="d-block add-to-new-squad" onClick={handleClick}>Add to a new Squad</button>}
         <ul>
           <li>Type: {pokemon.type.toUpperCase()}</li>
           <li>Height: {pokemon.height}</li>
@@ -98,7 +97,7 @@ const ShowPokemon = props => {
           />
         })}
       </div>
-    </main>
+    </section>
   )
 }
 

@@ -20,14 +20,14 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
   <Fragment>
     <Nav.Link className="nav-link" href="#/">Home</Nav.Link>
-    <Nav.Link className="nav-link" href="#/">Shop</Nav.Link>
+    <Nav.Link className="nav-link" href="#/pokemon">Shop</Nav.Link>
   </Fragment>
 )
 
 const Header = ({ user }) => (
   <Navbar className="navbar" sticky="top" fixed="top" expand="md">
     <Navbar.Brand href="#">
-      pokemon-card-database
+      Pokemon Trading Database
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">

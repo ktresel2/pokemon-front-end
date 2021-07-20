@@ -12,7 +12,7 @@ const SquadCard = (props) => {
       </Card.Text>
       <div className="squad-card-buttons">
         {!showingPoke && <button className="delete-squad-btn" onClick={() => onDelete(id, user)}>Delete Squad</button>}
-        {showingPoke && <button className="add-to-squad-btn" onClick={() => onAdd(id, showingPoke._id, user)}>Add {showingPoke.name} to this Squad</button>}
+        {showingPoke && !squad.pokemon.some(poke => poke._id === showingPoke._id) && <button className="add-to-squad-btn" onClick={() => onAdd(id, showingPoke._id, user)}>Add {showingPoke.name} to this Squad</button>}
         <button className="visit-squad-btn" onClick={() => history.push(`/squads/${props.id}`)}>Visit Squad</button>
       </div>
     </Card.Body>

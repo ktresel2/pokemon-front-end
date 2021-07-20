@@ -1,13 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
-@import './Components/Index/IndexAllPokemon.scss';
+@import './Components/Index/IndexPokemonStyle.scss';
 @import './Components/PokemonCard/PokemonCardStyle.scss';
 @import './Components/SquadCard/SquadCardStyle.scss';
 @import './Components/Show/Show.scss';
 @import './Components/Header/HeaderStyle.scss';
 @import './Components/Index/IndexSquadsStyle.scss';
+@import './Components/HomePage/HomePageStyle.scss';
 
 .row h3 {
-  font-size: 4rem;
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(230, 11, 23);
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 form {
@@ -21,14 +26,13 @@ form {
     font-size: 1.5rem;
   }
 
-  & input {
-    font-weight: bold;
+  & .form-control {
+    border-radius: 20px;
   }
 }
 
 main {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 

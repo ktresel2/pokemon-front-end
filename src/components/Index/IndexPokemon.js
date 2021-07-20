@@ -29,7 +29,7 @@ export default function IndexPokemon (props) {
   })
 
   return (
-    <main className="d-grid main-index">
+    <section className="grid">
       {pokemon && pokemon.map(poke => {
         return <PokemonCard
           key={poke._id}
@@ -43,6 +43,6 @@ export default function IndexPokemon (props) {
           moves={poke.moves}
         />
       })}
-    </main>
+    </section>
   )
 }

@@ -16,7 +16,7 @@ const ShowSquad = props => {
     !squad && showOneSquad(match.params.id, user)
       .then(res => setSquad(res.data.squad))
       .then(() => msgAlert({
-        heading: 'Show squad Success',
+        heading: 'Show squad success',
         message: messages.showSquadSuccess,
         variant: 'success'
       }))
@@ -42,7 +42,7 @@ const ShowSquad = props => {
       .catch(error => {
         setSquad(null)
         msgAlert({
-          heading: 'Show squad failed with error: ' + error.message,
+          heading: 'Update failed with error: ' + error.message,
           message: messages.deleteFromSquadFailure,
           variant: 'danger'
         })
@@ -55,25 +55,29 @@ const ShowSquad = props => {
   }
 
   return (
-    <main className="d-grid main-index">
-      <Button onClick={() => deleteThisSquad(squad._id, user)}>Delete this Squad</Button>
-      {squad && squad.pokemon.map(poke => {
-        return <PokemonCard
-          key={poke._id}
-          id={poke._id}
-          name={poke.name}
-          image={poke.image}
-          type={poke.type}
-          pokeId={poke.pokeId}
-          useDelete={true}
-          squad={squad}
-          delete={true}
-          user={user}
-          deletePokeFromSquad={deletePokeFromSquad}
-        />
-      })}
-      {squad && squad.pokemon.length === 0 && <h1>You have no pokemon in this squad! To to the store to add some.</h1>}
-    </main>
+    <div>
+      <Button className="squad-show-delete-button" variant="danger" onClick={() => deleteThisSquad(squad._id, user)}>Delete this Squad</Button>
+      <section className="container grid">
+        {squad && squad.pokemon.map(poke => {
+          return <PokemonCard
+            key={poke._id}
+            id={poke._id}
+            name={poke.name}
+            image={poke.image}
+            type={poke.type}
+            pokeId={poke.pokeId}
+            height={poke.height}
+            weight={poke.weight}
+            useDelete={true}
+            squad={squad}
+            delete={true}
+            user={user}
+            deletePokeFromSquad={deletePokeFromSquad}
+          />
+        })}
+        {squad && squad.pokemon.length === 0 && <h1>You have no pokemon in this squad! To to the store to add some.</h1>}
+      </section>
+    </div>
   )
 }
 
