@@ -5,17 +5,18 @@ import Button from 'react-bootstrap/Button'
 
 const PokemonCard = props => {
   return <Card className="card pokemon-card" key={props.id}>
-    <Card.Img className="card-image" variant="top" src={props.image}/>
+    <Card.Img className="card-image" variant="top" src={props.image} alt={props.name}/>
     <Card.Body className="card-body">
       <Card.Title className="card-title">{props.name}</Card.Title>
-      <Card.Text className="card-text">
-        {props.type}
-      </Card.Text>
-      <Button variant="outline-success"><Link className="button-link" to={`/pokemon/${props.id}`}>Check out this pokemon</Link></Button>
+      <div className="card-text">
+        <p>{props.type}</p>
+        <p>#{props.pokeId}</p>
+      </div>
+      <button className="checkout-btn"><Link className="button-link" to={`/pokemon/${props.id}`}>Check out this pokemon</Link></button>
       {props.delete &&
       <Button
         onClick={() => props.deletePokeFromSquad(props.squad._id, props.id, props.user)}
-        variant="outline-primary">Delete {props.name} to this Squad
+        variant="outline-danger">Delete {props.name} to this Squad
       </Button>
       }
     </Card.Body>

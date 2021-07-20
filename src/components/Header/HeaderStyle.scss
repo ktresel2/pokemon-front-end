@@ -1,4 +1,9 @@
-.nav {
-  background-color: transparent;
-  position: fixed;
+.navbar {
+  background-color: rgba(230, 12, 44, 0.5);
+  height: 4rem;
+  font-size: 1.2rem;
+
+  & .nav-link {
+    color: rgb(90, 11, 20);
+  }
 }
