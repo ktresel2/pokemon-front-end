@@ -4,9 +4,31 @@
 @import './Components/SquadCard/SquadCardStyle.scss';
 @import './Components/Show/Show.scss';
 @import './Components/Header/HeaderStyle.scss';
+@import './Components/Index/IndexSquadsStyle.scss';
+
+.row h3 {
+  font-size: 4rem;
+}
+
+form {
+  background-color: rgba(255, 0, 33, 0.1);
+  border-radius: 30px;
+  padding: 60px 100px;
+  border: 3px solid red;
+
+  & label {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  & input {
+    font-weight: bold;
+  }
+}
 
 main {
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 
@@ -19,7 +41,7 @@ main {
     align-items: center;
     justify-content: center;
     z-index: -100;
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .hero::before {

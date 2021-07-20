@@ -70,20 +70,34 @@ const ShowPokemon = props => {
 
   return (
     <main className="show-page">
-      <h1>{pokemon && pokemon.name}</h1>
-      <img src={pokemon && pokemon.image} />
-      {user && squads && squads.map(squad => {
-        return <SquadCard
-          key={squad._id}
-          id={squad._id}
-          squad={squad}
-          showingPoke={pokemon}
-          user={user}
-          useVisit={true}
-          onAdd={onAdd}
-        />
-      })}
-      {user && <Button variant="outline-success" onClick={handleClick}>Add to a new Squad</Button>}
+      {pokemon && <div className="poke-stats">
+        <h1>{pokemon.name}</h1>
+        <img src={pokemon.image} />
+        {user && <Button className="d-block" variant="outline-success" onClick={handleClick}>Add to a new Squad</Button>}
+        <ul>
+          <li>Type: {pokemon.type.toUpperCase()}</li>
+          <li>Height: {pokemon.height}</li>
+          <li>Weight: {pokemon.weight}</li>
+          <li>Moves: {<ul>
+            {pokemon.moves.map(move => {
+              return <li key={move}>{move}</li>
+            })}
+          </ul>}</li>
+        </ul>
+      </div>}
+      <div className="squad-section">
+        {user && squads && squads.map(squad => {
+          return <SquadCard
+            key={squad._id}
+            id={squad._id}
+            squad={squad}
+            showingPoke={pokemon}
+            user={user}
+            useVisit={true}
+            onAdd={onAdd}
+          />
+        })}
+      </div>
     </main>
   )
 }

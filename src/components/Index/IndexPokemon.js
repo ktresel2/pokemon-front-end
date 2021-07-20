@@ -38,6 +38,9 @@ export default function IndexPokemon (props) {
           image={poke.image}
           type={poke.type}
           pokeId={poke.pokeId}
+          weight={poke.weight}
+          height={poke.height}
+          moves={poke.moves}
         />
       })}
     </main>

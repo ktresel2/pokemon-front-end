@@ -1,24 +1,28 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 
 const PokemonCard = props => {
   return <Card className="card pokemon-card" key={props.id}>
-    <Card.Img className="card-image" variant="top" src={props.image} alt={props.name}/>
     <Card.Body className="card-body">
       <Card.Title className="card-title">{props.name}</Card.Title>
+      <Card.Img className="card-image" variant="top" src={props.image} alt={props.name}/>
       <div className="card-text">
-        <p>{props.type}</p>
-        <p>#{props.pokeId}</p>
+        <p>Type: {props.type}</p>
+        <p><span>Height: {props.height}</span> <span>Weight: {props.weight}</span></p>
+        <p>PokeId: #{props.pokeId}</p>
+        <p>PokeId: #{props.pokeId}</p>
       </div>
-      <button className="checkout-btn"><Link className="button-link" to={`/pokemon/${props.id}`}>Check out this pokemon</Link></button>
-      {props.delete &&
-      <Button
+      <div className="buttons">
+        <button className="checkout-btn"><Link className="button-link" to={`/pokemon/${props.id}`}>Check out this pokemon</Link></button>
+        {props.delete &&
+      <button
+        className="delete-btn"
         onClick={() => props.deletePokeFromSquad(props.squad._id, props.id, props.user)}
-        variant="outline-danger">Delete {props.name} to this Squad
-      </Button>
-      }
+      >Delete {props.name} from this Squad
+      </button>
+        }
+      </div>
     </Card.Body>
   </Card>
 }

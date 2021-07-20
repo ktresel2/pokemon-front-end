@@ -49,7 +49,7 @@ const IndexSquads = (props) => {
       .then(res => setSquads(res.data.squads))
   }
 
-  return <main className="d-grid main-index">
+  return <main className="squads-index">
     {user && squads && squads.length > 0 && squads.map(squad => {
       return <SquadCard
         key={squad._id}
