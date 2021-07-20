@@ -8,6 +8,7 @@
   text-align: center;
   height: auto;
   box-shadow: 2px 2px 6px 1px black;
+  text-transform: capitalize;
 
   & img {
     margin-top: 20px;
@@ -17,10 +18,35 @@
   & .card-title {
     font-size: 2rem;
     font-weight: bold;
-    color: rgb(74, 111, 3);
+  }
+
+  & p {
+    margin: 5px;;
+  }
+
+  & .delete-btn {
+    margin: 5px;
+    display: block;
+    width: 100%;
+    background-color: rgba(232, 11, 55, 0.8);
+    font-weight: bold;
+    box-shadow: 2px 2px 1px rgba(20, 30, 10, 0.3);
+
+    & a {
+      color: black;
+      text-decoration: none;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      transition: 0.3s ease-in-out;
+      box-shadow: 2px 2px 3px black;
+    }
   }
 
   & .checkout-btn {
+    display: block;
+    width: 100%;
     background-color: rgba(222, 11, 55, 0.2);
     font-weight: bold;
     box-shadow: 2px 2px 1px rgba(20, 30, 10, 0.3);

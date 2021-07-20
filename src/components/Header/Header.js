@@ -25,7 +25,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar className="navbar" sticky="top" fixed="top" variant="dark" expand="md">
+  <Navbar className="navbar" sticky="top" fixed="top" expand="md">
     <Navbar.Brand href="#">
       pokemon-card-database
     </Navbar.Brand>
