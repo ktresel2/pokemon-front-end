@@ -19,7 +19,6 @@ const IndexSquads = (props) => {
         variant: 'success'
       }))
       .catch(error => {
-        setSquads(null)
         msgAlert({
           heading: 'Index Squads failed with error: ' + error.message,
           message: messages.changePasswordFailure,
@@ -37,7 +36,6 @@ const IndexSquads = (props) => {
           variant: 'success'
         }))
     } catch (error) {
-      setSquads(null)
       msgAlert({
         heading: 'Index Squads failed with error: ' + error.message,
         message: messages.changePasswordFailure,
@@ -49,7 +47,7 @@ const IndexSquads = (props) => {
       .then(res => setSquads(res.data.squads))
   }
 
-  return <main className="squads-index">
+  return <main className="index-squads">
     {user && squads && squads.length > 0 && squads.map(squad => {
       return <SquadCard
         key={squad._id}
@@ -59,7 +57,7 @@ const IndexSquads = (props) => {
         onDelete={deleteThisSquad}
       />
     })}
-    {squads && !squads.length > 0 && <div>
+    {squads && !squads.length > 0 && <div className="no-squads">
       <h1>You have no squads.</h1>
       <p>Head over to the shop to add some!</p>
       <button onClick={() => history.push('/pokemon')}>Shop</button>
