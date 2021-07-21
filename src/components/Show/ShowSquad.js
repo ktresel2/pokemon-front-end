@@ -12,7 +12,6 @@ const ShowSquad = props => {
   const { user, match, history, msgAlert } = props
 
   useEffect(() => {
-    console.log(user, squad)
     !squad && showOneSquad(match.params.id, user)
       .then(res => setSquad(res.data.squad))
       .then(() => msgAlert({
