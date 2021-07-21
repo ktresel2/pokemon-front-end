@@ -20,7 +20,6 @@ const ShowSquad = props => {
         variant: 'success'
       }))
       .catch(error => {
-        setSquad(null)
         msgAlert({
           heading: 'Index Pokemon failed with error: ' + error.message,
           message: messages.showSquadFailure,
@@ -31,7 +30,6 @@ const ShowSquad = props => {
 
   const deletePokeFromSquad = (sid, pid, u) => {
     deleteFromSquad(sid, pid, u)
-      .then(showOneSquad(match.params.id, user))
       .then(res => setSquad(res.data.squad))
       .then(() => msgAlert({
         heading: 'Update Success',
@@ -39,7 +37,6 @@ const ShowSquad = props => {
         variant: 'success'
       }))
       .catch(error => {
-        setSquad(null)
         msgAlert({
           heading: 'Update failed with error: ' + error.message,
           message: messages.deleteFromSquadFailure,
