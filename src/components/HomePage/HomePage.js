@@ -5,7 +5,7 @@ const HomePage = props => {
   const { history, user } = props
   return <section>
     {!user && <div className="homepage">
-      <h1>Welcome to the Pokemon Trading Database!</h1>
+      <h1>Welcome to the Pokemon Card Trading Database!</h1>
       <h2>Create your own squads of G1 Pokemon.</h2>
       <button onClick={() => history.push('/pokemon')}>Check out the Shop</button>
     </div>}
