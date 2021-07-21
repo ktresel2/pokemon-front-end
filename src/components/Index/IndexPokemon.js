@@ -19,7 +19,6 @@ export default function IndexPokemon (props) {
         variant: 'success'
       }))
       .catch(error => {
-        setPokemon(null)
         msgAlert({
           heading: 'Index Pokemon failed with error: ' + error.message,
           message: messages.indexPokemonFailure,

@@ -75,8 +75,8 @@ const ShowSquad = props => {
             deletePokeFromSquad={deletePokeFromSquad}
           />
         })}
-        {squad && squad.pokemon.length === 0 && <h1>You have no pokemon in this squad! To to the store to add some.</h1>}
       </section>
+      {squad && squad.pokemon.length === 0 && <h1 className="empty-squad">You have no pokemon in this squad! To to the store to add some.</h1>}
     </div>
   )
 }
