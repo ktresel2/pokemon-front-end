@@ -21,9 +21,9 @@ This is the front-end client of an application that indexes pokemon cards and al
 
 ### Wireframes
 
-![Index Squads, Show Pokemon](https://imgur.com/FMeZh2L)
+![Index Squads, Show Pokemon](https://i.imgur.com/jD37voA.jpg)
 
-![Main Index Pokemon, Shoq Squad](https://imgur.com/wXum6qt)
+![Main Index Pokemon, Show Squad](https://i.imgur.com/PHheB0o.jpg)
 
 ### User stories
 
