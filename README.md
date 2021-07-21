@@ -2,6 +2,13 @@
 
 ## About the app
 
+### Setup and installation
+
+1. Fork and clone this repository.
+2. Install dependencies with `npm install`.
+3. Checkout to a new branch to start working.
+4. Create a pull request to submit your work.
+
 ### Description
 
 This is the front-end client of an application that indexes pokemon cards and allows registered users to collect squads of pokemon.
