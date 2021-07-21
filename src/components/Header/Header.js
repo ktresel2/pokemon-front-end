@@ -27,12 +27,12 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar className="navbar" sticky="top" fixed="top" expand="md">
     <Navbar.Brand href="#">
-      Pokemon Trading Database
+      Pokemon Card Trading Database
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ml-auto navs">
-        { user && <span className="navbar-text mr-2">Welcome, {user.name}</span>}
+        { user && <span className="greet navbar-text mr-2">Welcome, {user.name}</span>}
         { alwaysOptions }
         { user ? authenticatedOptions : unauthenticatedOptions }
       </Nav>
