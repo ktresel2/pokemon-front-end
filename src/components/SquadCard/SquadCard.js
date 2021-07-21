@@ -8,6 +8,7 @@ const SquadCard = (props) => {
   return user && <Card className="card squad-card mb-3" key={id}>
     <Card.Body className="card-body">
       <Card.Text className="card-text">
+        {!squad.pokemon.length > 0 && <p>This squad is empty.</p>}
         {squad.pokemon.map(poke => <img key={poke._id} src={poke.image}/>)}
       </Card.Text>
       <div className="squad-card-buttons">
