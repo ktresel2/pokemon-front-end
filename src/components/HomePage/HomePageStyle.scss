@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300;500;900&family=Yomogi&display=swap');
+
+.homepage {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+
+  & h1, h2 {
+    font-family: 'Yomogi', sans-serif;
+    margin: 30px auto;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  & button {
+    font-family: 'Exo', sans-serif;
+    padding: 15px;
+    width: 100%;
+    font-size: 1.4rem;
+    margin: 15px auto;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(32, 111, 55, 0.8);
+    box-shadow: 2px 2px 1px rgba(20, 30, 10, 0.3);
+
+    &:hover {
+      transform: translate(-2px);
+      transition: 0.2s ease-out;
+    }
+  }
+}
