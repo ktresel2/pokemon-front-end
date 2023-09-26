@@ -7,7 +7,7 @@ import messages from "../AutoDismissAlert/messages";
 class SignOut extends Component {
   componentDidMount() {
     const { msgAlert, history, clearUser, user } = this.props;
-    console.log(this.props)
+    clearUser()
     localStorage.removeItem("token");
     signOut(user)
       .finally(() =>
@@ -17,8 +17,6 @@ class SignOut extends Component {
           variant: "success",
         })
       )
-      .finally(() => history.push("/"))
-      .finally(() => clearUser());
   }
 
   render() {

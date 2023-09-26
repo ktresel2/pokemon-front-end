@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Route, HashRouter as Router, Switch } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -15,20 +15,9 @@ import ShowSquad from './components/Show/ShowSquad'
 import IndexSquads from './components/Index/IndexSquads'
 import HomePage from './components/HomePage/HomePage'
 
-import setAuthToken from "./setAuthToken";
-
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-  console.log(localStorage)
-}
-
 const App = (props) => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
-
-  useEffect(() => {
-
-  })
 
   const clearUser = () => setUser(null)
 
@@ -41,6 +30,10 @@ const App = (props) => {
     setMsgAlerts([...msgAlerts, {heading, message, variant, id}])
   }
     !user && localStorage.removeItem('token')
+  
+  useEffect(() => {
+
+  }, [user])
 
     return (
       <Fragment>

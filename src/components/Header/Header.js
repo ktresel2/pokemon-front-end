@@ -24,8 +24,9 @@ const alwaysOptions = (
   </Fragment>
 )
 
-const Header = ({ user }) => (
-  <Navbar className="navbar" sticky="top" fixed="top" expand="md">
+const Header = ({ user }) => {
+  console.log(user)
+  return <Navbar className="navbar" sticky="top" fixed="top" expand="md">
     <Navbar.Brand href="#">
       Pokemon Card Trading Database
     </Navbar.Brand>
@@ -38,6 +39,6 @@ const Header = ({ user }) => (
       </Nav>
     </Navbar.Collapse>
   </Navbar>
-)
+}
 
 export default Header

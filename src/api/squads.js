@@ -1,9 +1,7 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
-import setAuthToken from "./../setAuthToken";
 
 export const indexAllSquads = user => {
-
   return axios({
     url: apiUrl + "/squads",
     data: {

@@ -6,6 +6,7 @@ import messages from "../AutoDismissAlert/messages";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import setAuthToken from "../../setAuthToken";
 
 class SignIn extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class SignIn extends Component {
         console.log(res)
         setUser(res.data.user);
         localStorage.setItem("token", res.data.user.token);
+        setAuthToken(localStorage.token)
       })
       .then(() =>
         msgAlert({
