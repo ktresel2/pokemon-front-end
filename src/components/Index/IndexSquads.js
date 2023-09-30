@@ -7,7 +7,6 @@ import SquadCard from "./../SquadCard/SquadCard";
 
 const IndexSquads = (props) => {
   const [squads, setSquads] = useState([]);
-  console.log(squads)
 
   const { user, history, msgAlert } = props;
 

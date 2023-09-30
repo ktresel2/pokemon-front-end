@@ -25,7 +25,6 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => {
-  console.log(user)
   return <Navbar className="navbar" sticky="top" fixed="top" expand="md">
     <Navbar.Brand href="#">
       Pokemon Card Trading Database

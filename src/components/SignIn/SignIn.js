@@ -31,7 +31,6 @@ class SignIn extends Component {
 
     signIn(this.state)
       .then((res) => {
-        console.log(res)
         setUser(res.data.user);
         localStorage.setItem("token", res.data.user.token);
         setAuthToken(localStorage.token)
