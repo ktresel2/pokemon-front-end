@@ -22,6 +22,15 @@ const HomePage = (props) => {
           </button>
         </div>
       )}
+      {!user && (
+        <div className="homepage">
+          {<h1>Please sign in to create your squads!</h1>}
+          <button onClick={() => history.push("/sign-in")}>Sign In</button>
+          <button onClick={() => history.push("/sign-up")}>
+            Sign Up
+          </button>
+        </div>
+      )}
     </section>
   );
 };
