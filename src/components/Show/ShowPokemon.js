@@ -119,6 +119,11 @@ const ShowPokemon = (props) => {
               />
             );
           })}
+        {!user && pokemon && (
+          <div>
+            <a href="https://pokemon-front-ndjy.onrender.com/#/sign-in">Sign In</a> to get {pokemon.name} on your squad!
+          </div>
+        )}
       </div>
     </section>
   );
